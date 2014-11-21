@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Function, Oden</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<style>
+body {
+font-size: 25px;
+font-family: 'Perpetua','Baskerville Old Face','Garamond',serif;
+text-align:center;
+margin-top: 20px;
+background-color:#232323;
+color:white;
+}
+#butt {
+margin: 0 auto;
+width:700px;
+text-align:left;
+}
+@media (max-width: 480px) {
+  body {
+	font-size: 15pt;
+	font-family: 'Perpetua','Baskerville Old Face','Garamond',serif;
+	background-color:#232323;
+	color:white;
+  }
+  #butt {
+	margin: 10px; 
+  }
+}
+.title {
+font-size: 130%;
+}
+</style>
+<script src="json2.js"></script>
+<script type="text/javascript">
+setxhr();
+
+function Oden() {
+    var till = '0',
+        tail = '',
+        told = function () {
+            return tail.length;
+        },
+        tell = function () {
+			var tall = '',
+				bottle = new XMLHttpRequest();
+			if (typeof FormData != 'undefined') {
+				message = new FormData()
+				message.append('tale',told().toString());
+			} else {
+				message = "tale=" + told().toString();
+			};
+			bottle.onreadystatechange = function () {
+				if (bottle.readyState == 4) {
+					tall = JSON.parse(bottle.responseText.toString());
+					till = +tall.till || till;
+					tail += wag(tall.tail);
+				};
+			};
+			bottle.open('POST','pup.py',(till > 0));
+			bottle.send(message);
+			setTimeout(tell,till);
+        };
+    this.tell = tell;
+};
+
+function wag(tail) {
+    var div = document.getElementById('butt');
+    div.innerHTML += markup(tail);
+    return tail;
+};
+
+function markup(text) {
+	var res;
+	res = text.replace(/\n\n\t(\S)/ig,"\n\n&nbsp;&nbsp;&nbsp;&nbsp;<b>$1</b>");
+	res = res.replace(/Function, Oden/,"<span class='title'>Function, Oden</span>");
+	res = res.replace(/\n/ig,"<br>");
+	res = res.replace(/\t/ig,"&nbsp;&nbsp;&nbsp;&nbsp;");
+	return res;
+};
+
+function setxhr() {
+	if (typeof XMLHttpRequest == "undefined")
+	  XMLHttpRequest = function () {
+		try { return new ActiveXObject("Msxml2.XMLHTTP.6.0"); }
+		  catch (e) {}
+		try { return new ActiveXObject("Msxml2.XMLHTTP.3.0"); }
+		  catch (e) {}
+		try { return new ActiveXObject("Microsoft.XMLHTTP"); }
+		  catch (e) {}
+		throw new Error("This browser does not support XMLHttpRequest.");
+	  };
+};
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28036020-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="butt"></div>
+<script>
+var tale = new Oden();
+tale.tell();
+</script>
+</body>
+</html>
